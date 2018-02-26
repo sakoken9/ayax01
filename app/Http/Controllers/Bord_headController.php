@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Bord_head;
+use Illuminate\Support\Facades\Auth;
+
 
 class Bord_headController extends Controller
 {
     public function index(){
-      $items = Bord_head::all();
-      return view('bord_index',[
-        'items' => $items,
-      ]);
+      if( Auth::check()){
+        $items = Bord_head::all();
+        return view('bord_index',[
+          'items' => $items,
+        ]);
+      }else{
+        return redirect('/login');
+      }
       /*
       $items = DB::table('bord')->simplePaginate(2);
       return view('index',[

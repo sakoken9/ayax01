@@ -20,6 +20,13 @@
             <li class="nav-item active">
               <a class="nav-link" href="/sa">ホーム <span class="sr-only">(現位置)</span></a>
             </li>
+<?php
+$t="";
+if(strpos(Request::url(),'bord') === false){
+  
+}
+ ?>
+
             <li class="nav-item">
               <a class="nav-link" href="/sa/entry">投稿</a>
             </li>
@@ -34,11 +41,11 @@
               </form>
             @endif
           </li>
-
+          @if( !Auth::check())
             <li class="nav-item">
-              <a class="nav-link" href="/sample01/public/resiter">ユーザ登録</a>
+              <a class="nav-link" href="/sa/register">ユーザ登録</a>
             </li>
-
+          @endif
           </ul>
           <form class="form-inline my-2 my-md-0">
             <input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">

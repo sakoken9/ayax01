@@ -20,19 +20,16 @@
             <li class="nav-item active">
               <a class="nav-link" href="/sa">ホーム <span class="sr-only">(現位置)</span></a>
             </li>
-<?php
-$t="";
-if(strpos(Request::url(),'bord') === false){
-  
-}
- ?>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/sa/entry">投稿</a>
-            </li>
+            @if(isBord())
+              <li class="nav-item">
+                <a class="nav-link" href="/sa/entry">投稿</a>
+              </li>
+            @endif
+            @if(!isBord())
             <li class="nav-item">
               <a class="nav-link" href="/sa/entry_head">掲示板作成</a>
             </li>
+            @endif
             <li class="nav-item">
             @if (Auth::check())
               <form action="/sa/logout" method="post" id="submit">

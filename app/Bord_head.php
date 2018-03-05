@@ -15,6 +15,7 @@ class Bord_head extends Model
       $bord->writer_id = $writer;
       $bord->title = $title;
       $bord->save();
+      return $bord->id;
     }
     static function get_title($id){
       $bords = Bord_head::find($id);

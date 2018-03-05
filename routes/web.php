@@ -15,11 +15,16 @@
 Route::get('/', 'Bord_headController@index');
 Route::get('/sa/entry', 'BordController@entry');
 Route::post('/sa/entry', 'BordController@add');
+Route::get('/sa/entry_reply/{id}','BordController@entry_reply');
+Route::post('/sa/entry_reply/{id}','BordController@add_reply');
 
 Route::get('/sa/bord/{id}', 'BordController@index');
+Route::post('/sa/bord/{id}', 'BordController@toggle');
 
 Route::get('/sa/entry_head', 'Bord_headController@entry');
 Route::post('/sa/entry_head', 'Bord_headController@add');
+
+Route::get('entry_reply','BordController@entry_reply');
 
 
 //Auth::routes();

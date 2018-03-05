@@ -25,6 +25,21 @@
                 <a class="nav-link" href="/sa/entry">投稿</a>
               </li>
             @endif
+            <?php
+              if(isTree()){
+                $temp = "レス順";
+              }else{
+                $temp = "ツリー";
+              }
+            ?>
+            @if(isBord())
+              <li class="nav-item">
+                <form action="" method="post" id="submit">
+                  {{ csrf_field() }}
+                  <span class="nav-link pointer"  onclick='document.getElementById("submit").submit()'>{{ $temp }}</span>
+                </form>
+              </li>
+            @endif
             @if(!isBord())
             <li class="nav-item">
               <a class="nav-link" href="/sa/entry_head">掲示板作成</a>
